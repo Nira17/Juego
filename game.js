@@ -20,16 +20,23 @@ var Game = {
 
     this.interval = setInterval(function () {
 
-      //this.moveAll();
-      this.drawAll();
+      this.moveAll();
       this.clear();
+      this.drawAll();
+  
+
+
 
     }.bind(this))
   },
 
   reset: function () {
-    // this.background = new Background(this);
+    this.background = new Background(this);
     this.player = new Player(this);
+    
+    this.drops = new Drops(this);
+    
+    
     // this.scoreBoard = ScoreBoard
     // this.framesCounter = 0;
     // this.obstacles = [];
@@ -42,15 +49,17 @@ var Game = {
   },
 
   drawAll: function () {
-    // this.background.draw();
-    this.player.draw();
+   this.background.draw();
+   this.player.draw();
+   this.drops.draw();
     // this.obstacles.forEach(function (obstacle) { obstacle.draw(); });
     // this.drawScore();
   },
 
   moveAll: function () {
-    //this.background.move();
+   
     this.player.move();
+    //this.drops.move();
     // this.obstacles.forEach(function (obstacle) { obstacle.move(); });
   },
 
