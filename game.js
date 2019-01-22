@@ -7,6 +7,7 @@ var Game = {
     RIGTH: 39,
     LEFT: 37,
   },
+  arrayDrops : [],
 
 
   start: function () {
@@ -18,48 +19,82 @@ var Game = {
 
     this.reset();
 
+    this.dropCount = 0;
+
     this.interval = setInterval(function () {
 
-      this.moveAll();
+     
       this.clear();
+    
       this.drawAll();
-  
+      this.moveAll();
+      
+
+      this.dropCount++;
+   
+      if(this.dropCount === 120){
+         this.dropCount = 0;
+         this.createDrops();
+     
+
+        
+        
+
+      }
+      
+      
 
 
+    }.bind(this), 1000/this.fps)
+},
 
-    }.bind(this))
-  },
+
 
   reset: function () {
     this.background = new Background(this);
     this.player = new Player(this);
+
     
-    this.drops = new Drops(this);
-    
-    
+
+
+
+
     // this.scoreBoard = ScoreBoard
     // this.framesCounter = 0;
-    // this.obstacles = [];
+
     // this.score = 0;
+  },
+  createDrops: function (){
+    
+    var dropttt = new Drops(this,Math.round(Math.random() * (900 - 400) + 400),60);
+    this.arrayDrops.push(dropttt)
+
+
   },
 
   clear: function () {
-    console.log(this.canvas.height)
+   
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
   },
 
   drawAll: function () {
-   this.background.draw();
-   this.player.draw();
-   this.drops.draw();
+    this.background.draw();
+    this.drawDrops();
+    this.player.draw();
     // this.obstacles.forEach(function (obstacle) { obstacle.draw(); });
     // this.drawScore();
   },
+  drawDrops:function (){
+  this.arrayDrops.forEach(function(elemt){
+    elemt.draw();
+    elemt.move();
+  })
+  },
 
-  moveAll: function () {
-   
+   moveAll: function () {
+
     this.player.move();
-    this.drops.move();
+  
     // this.obstacles.forEach(function (obstacle) { obstacle.move(); });
   },
 
@@ -68,17 +103,21 @@ var Game = {
   //       }
 
 
+  
+  
   isCollision: function () {
     // colisiones genéricas 
     // (p.x + p.w > o.x && o.x + o.w > p.x && p.y + p.h > o.y && o.y + o.h > p.y )
     // esto chequea que el personaje no estén en colisión con cualquier obstáculo
+    
     return this.drops.some(function (obstacle) {
       return (
-        ((this.player.x + this.player.w) >= obstacle.x &&
-          this.player.x < (obstacle.x + obstacle.w) &&
-          this.player.y + (this.player.h - 20) >= obstacle.y)
+        ((this.player.x + this.player.w) >= drops.x &&
+          this.player.x < (obstacle.x + drops.w) &&
+          this.player.y + (this.player.h - 20) >= drops.y)
       );
     }.bind(this));
   },
 
 }
+

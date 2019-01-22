@@ -1,6 +1,6 @@
 function Player(game) {
     this.game = game
-    this.x =400; // x coordinate
+    this.x =600; // x coordinate
     this.y = 420; // y coordinate
     this.r = 15;
     //this.move();
@@ -25,23 +25,19 @@ Player.prototype.move = function () {
     document.onkeydown = function (event) {
         if (event.keyCode === this.game.keys.RIGTH) {
             console.log('derecha')
-            this.x += 5;
-
-        } else if (event.keyCode == this.game.keys.LEFT) {
+            this.x += 5;} else if (event.keyCode == this.game.keys.LEFT) {
             console.log('IZDA')
             this.x -= 5;
         }
     }.bind(this);
-    
-         debugger
-        if (this.x + this.r >  this.game.canvas.width) {
-            
 
-        this.x--;
+        if (this.x + this.r > this.game.canvas.width ) {
+            this.x--;
+         }
          
+       if (this.x + 10 <425){
+          this.x++;
 
-    
-        
-      }
+       }
 
-};
+}; 

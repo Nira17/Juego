@@ -1,9 +1,9 @@
-function Drops(game) {
+function Drops(game,x,y) {
     this.game = game
-    this.x =500; // x coordinate
-    this.y = 60; // y coordinate
+    this.x = x; 
+    this.y = y;
     this.r = 5;
-    this.dy = 1;
+    this.dy = 2;
     
   
     
@@ -11,6 +11,7 @@ function Drops(game) {
 }
 
 Drops.prototype.draw = function () {
+
     this.ctx = this.game.ctx;
     this.ctx.beginPath();
     this.ctx.strokeStyle = "#000000";
@@ -27,14 +28,6 @@ Drops.prototype.move = function () {
      this.y += this.dy ;
 };
    
-
-
-    // if (this.y + this.vy > canvas.height || this.y + this.vy < 0) {
-    //     this.vy *= -1;
-    //   }
-    //   if (this.x + this.vx > canvas.width || this.x + this.vx < 0) {
-    //     this.vx *= -1;
-    //   }
 
 
 
