@@ -3,7 +3,7 @@ function Player(game) {
     this.x =400; // x coordinate
     this.y = 420; // y coordinate
     this.r = 15;
-    this.move();
+    //this.move();
 }
 
 
@@ -32,4 +32,16 @@ Player.prototype.move = function () {
             this.x -= 5;
         }
     }.bind(this);
+    
+         debugger
+        if (this.x + this.r >  this.game.canvas.width) {
+            
+
+        this.x--;
+         
+
+    
+        
+      }
+
 };

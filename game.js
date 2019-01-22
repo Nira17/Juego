@@ -59,12 +59,26 @@ var Game = {
   moveAll: function () {
    
     this.player.move();
-    //this.drops.move();
+    this.drops.move();
     // this.obstacles.forEach(function (obstacle) { obstacle.move(); });
   },
 
   // drawScore: function () {
   //         this.scoreBoard.update(this.score, this.ctx)
   //       }
+
+
+  isCollision: function () {
+    // colisiones genéricas 
+    // (p.x + p.w > o.x && o.x + o.w > p.x && p.y + p.h > o.y && o.y + o.h > p.y )
+    // esto chequea que el personaje no estén en colisión con cualquier obstáculo
+    return this.drops.some(function (obstacle) {
+      return (
+        ((this.player.x + this.player.w) >= obstacle.x &&
+          this.player.x < (obstacle.x + obstacle.w) &&
+          this.player.y + (this.player.h - 20) >= obstacle.y)
+      );
+    }.bind(this));
+  },
 
 }

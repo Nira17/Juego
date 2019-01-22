@@ -9,7 +9,7 @@ function Background(game) {
     this.width = 1000;
     this.height = 1000;
   
-    this.dx = 10;
+  
   }
   
   Background.prototype.draw = function() {

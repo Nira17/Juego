@@ -1,8 +1,9 @@
 function Drops(game) {
     this.game = game
     this.x =500; // x coordinate
-    this.y = 84; // y coordinate
+    this.y = 60; // y coordinate
     this.r = 5;
+    this.dy = 1;
     
   
     
@@ -21,13 +22,11 @@ Drops.prototype.draw = function () {
     this.ctx.closePath();  
 
 }
-// Drops.prototype.move = function () {
-//     this.vy = 10;
-//     this.ctx.clearRect(0, 0, this.canvas.width, this.height);
-//     this.y += 1;
-
-// };
-   // this.y += this.vy;
+Drops.prototype.move = function () {
+    
+     this.y += this.dy ;
+};
+   
 
 
     // if (this.y + this.vy > canvas.height || this.y + this.vy < 0) {
@@ -41,15 +40,3 @@ Drops.prototype.draw = function () {
 
 
 
-// function lastDayIsFriday(initialYear, endYear) {
-//     var start = new Date(initialYear, 1, 0);
-//     var end = new Date(endYear || initialYear, 11, 31);
-//     count = 0;
-    
-//     for (let i = 1; start <= end; start = new Date(initialYear,++i,0)) {
-       
-//       if (start.getDay() == 5) count++;
-  
-//     }
-//     return count; 
-//   }
