@@ -25,20 +25,21 @@ Player.prototype.move = function () {
     document.onkeydown = function (event) {
         if (event.keyCode === this.game.keys.RIGTH ) {
             console.log('derecha')
-            this.x += 5;               
-        }else if (event.keyCode == this.game.keys.LEFT) {
+            this.x += 5;
+               
+             }else if (event.keyCode == this.game.keys.LEFT) {
             console.log('IZDA')
             this.x -= 5;
         }
     }.bind(this);
 
         if (this.x + this.r > this.game.canvas.width ) {
-            this.x -= 10;
+            this.x--;
          }
          
          
        if (this.x + 10 < 425){
-          this.x += 10;
+          this.x++;
 
        }
 

@@ -1,0 +1,33 @@
+
+
+*{
+  margin: 0;
+  padding: 0;
+}
+.miCanvas{
+  background-color:#29628c;
+  float: right;
+  margin-right: 500px;
+  margin-top:75px;
+}
+
+  
+  body{
+
+    background-color: black;
+     background-image: url("../img/planetas.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; 
+
+   
+  }
+
+.titulo{
+    color: #2c4d65;
+    font-size: 3em;
+    text-align: center;
+    
+
+  }
+
+  
