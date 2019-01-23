@@ -1,4 +1,4 @@
-function Drops(game,x,y,color) {
+function DropsFriend(game,x,y,color) {
     this.game = game
     this.x = x; 
     this.y = y;
@@ -11,12 +11,12 @@ function Drops(game,x,y,color) {
     
 }
 
-Drops.prototype.draw = function () {
+DropsFriend.prototype.draw = function () {
 
     this.ctx = this.game.ctx;
     this.ctx.beginPath();
-    this.ctx.strokeStyle = "#000000";
-    this.ctx.fillStyle = "#000000";
+    this.ctx.strokeStyle = "#fff57c";
+    this.ctx.fillStyle = "#fff57c";
     this.ctx.lineWidth = 5;
     this.ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
     this.ctx.fill();
@@ -24,13 +24,8 @@ Drops.prototype.draw = function () {
     this.ctx.closePath();  
 
 }
-Drops.prototype.move = function () {
+DropsFriend.prototype.move = function () {
     
      this.y += this.dy ;
 };
    
-
-
-
-
-
