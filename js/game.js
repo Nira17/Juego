@@ -138,10 +138,12 @@ var Game = {
           
          this.level++;
             
-            //document.location.reload();
+             //document.location.reload();
             this.levelChange();
+           
           }.bind(this),500)
         }
+        
      
         
 
@@ -196,8 +198,9 @@ var Game = {
   levelChange: function(){
     if(this.level == 2){
       this.colorLevel = "	#e6a958";
-   
+      this.ColorPlus = 0; 
     }
+    
     
     
     }
