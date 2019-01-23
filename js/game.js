@@ -83,6 +83,7 @@ var Game = {
 
   drawAll: function () {
     this.background.draw();
+  
     this.drawDrops();
     this.player.draw();
     this.drawLives();
@@ -129,7 +130,9 @@ var Game = {
         } 
         if(this.ColorPlus >= 50){
           setTimeout(function(){
-            alert("Paint");
+           
+
+           this.canvas.background = "../img/Background2.png"
             document.location.reload();
           },500)
         }
@@ -138,7 +141,7 @@ var Game = {
 
       }
     }.bind(this))
-    //console.log(result)
+
   },
 
 
@@ -155,13 +158,14 @@ var Game = {
           this.points--;
         }
 
-        else if (this.points==0) {
+        else if (this.points < 0) {
          
-          this.points=0;
+          
           setTimeout(function(){
             alert("Game over");
             document.location.reload();
           },500)
+           
 
         }
 
@@ -174,12 +178,12 @@ var Game = {
 
   drawLives: function () {
     this.ctx.font = "20px Arial";
-    this.ctx.fillStyle = "#0095DD";
+    this.ctx.fillStyle = "	#F08080";
     this.ctx.fillText("Point: " + this.points, 40, 40);
   },
   drawball: function () {
     this.ctx.font = "20px Arial";
-    this.ctx.fillStyle = "#0095DD";
+    this.ctx.fillStyle = "#90EE90";
     this.ctx.fillText("Color +: " + this.ColorPlus, 700, 40);
   }
 
