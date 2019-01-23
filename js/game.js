@@ -4,6 +4,7 @@ var Game = {
   fps: 60,
   scoreBoard: 0,
   points: 50,
+  ColorPlus:0,
   keys: {
     RIGTH: 39,
     LEFT: 37,
@@ -32,11 +33,12 @@ var Game = {
       this.drawAll();
       this.moveAll();
       this.isCollision()
+      this.isCollisionFriends();
 
       this.dropCount++;
       this.dropFriendsCount++;
 
-      if (this.dropCount === 80) {
+      if (this.dropCount === 60) {
         this.dropCount = 0;
         this.createDrops();
 
@@ -67,7 +69,7 @@ var Game = {
   },
 
   createDropsFriends: function () {
-    console.log("hi")
+
     var dropItem = new DropsFriends(this, Math.round(Math.random() * (900 - 400) + 400), 62,);
     this.arrayDropsFriends.push(dropItem)
 
@@ -85,6 +87,7 @@ var Game = {
     this.player.draw();
     this.drawLives();
     this.drawDropsFriends();
+    this.drawball();
     
 
   },
@@ -99,7 +102,7 @@ var Game = {
     drawDropsFriends: function () {
     
       this.arrayDropsFriends.forEach(function (elemtf) {
-        console.log(elemtf)
+     
         elemtf.drawf();
         elemtf.movef();
       })
@@ -114,6 +117,25 @@ var Game = {
 
 
 
+  isCollisionFriends: function () {
+
+    this.arrayDropsFriends.forEach(function (dropf) {
+      var dx = this.player.x - dropf.x;
+      var dy = this.player.y - dropf.y;
+      var distance = Math.sqrt(dx * dx + dy * dy);
+      if (distance < this.player.r + dropf.r) {
+        if (this.ColorPlus >= 0) {
+          this.ColorPlus++;
+        }else{
+          alert("Pinta!")
+        }
+     
+        
+
+      }
+    }.bind(this))
+    //console.log(result)
+  },
 
 
 
@@ -124,7 +146,7 @@ var Game = {
       var dy = this.player.y - drop.y;
       var distance = Math.sqrt(dx * dx + dy * dy);
       if (distance < this.player.r + drop.r) {
-        if (this.points > 0) {
+        if (this.points >= 0) {
 
           this.points--;
         }
@@ -150,6 +172,11 @@ var Game = {
     this.ctx.font = "20px Arial";
     this.ctx.fillStyle = "#0095DD";
     this.ctx.fillText("Point: " + this.points, 40, 40);
+  },
+  drawball: function () {
+    this.ctx.font = "20px Arial";
+    this.ctx.fillStyle = "#0095DD";
+    this.ctx.fillText("Color +: " + this.ColorPlus, 700, 40);
   }
 
 

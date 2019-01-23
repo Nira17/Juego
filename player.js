@@ -3,7 +3,7 @@ function Player(game) {
     this.x =800; // x coordinate
     this.y = 420; // y coordinate
     this.r = 15;
-    this.life = 3;
+ 
     //this.move();
 }
 
