@@ -133,13 +133,14 @@ var Game = {
         if (this.ColorPlus >= 0) {
           this.ColorPlus++;
         } 
-        if(this.ColorPlus >= 50){
+        if(this.ColorPlus%50 == 0){
           setTimeout(function(){
           
          this.level++;
             
              //document.location.reload();
             this.levelChange();
+           
            
           }.bind(this),500)
         }
@@ -198,12 +199,21 @@ var Game = {
   levelChange: function(){
     if(this.level == 2){
       this.colorLevel = "	#e6a958";
-      this.ColorPlus = 0; 
+      this.points = 50;
+ 
+      //this.background.draw("../img/Background2.png");
     }
-    
-    
-    
+    if(this.level == 3){
+      this.colorLevel = "#fabada";
+     
+      this.points = 50;
+      
     }
+    },
+
+
+    
+  
 
 
 }
