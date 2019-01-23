@@ -204,11 +204,21 @@ var Game = {
       //this.background.draw("../img/Background2.png");
     }
     if(this.level == 3){
-      this.colorLevel = "#fabada";
-     
+      this.colorLevel = "#913b3c";
       this.points = 50;
       
-    }
+      }
+    if(this.level == 4){
+        this.colorLevel = "#e8e8e8";
+        this.points = 50;
+        
+        }
+        if(this.level == 5){
+          alert("Todo Pintado")
+          document.location.reload();
+          
+          }   
+       
     },
 
 

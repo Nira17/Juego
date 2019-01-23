@@ -3,7 +3,7 @@ function Drops(game,x,y,color) {
     this.x = x; 
     this.y = y;
     this.r = 5;
-    this.dy = 2;
+    this.dy = 3;
     this.color = color;
     
   
