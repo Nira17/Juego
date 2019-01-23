@@ -38,7 +38,7 @@ var Game = {
       this.dropCount++;
       this.dropFriendsCount++;
 
-      if (this.dropCount === 60) {
+      if (this.dropCount === 40) {
         this.dropCount = 0;
         this.createDrops();
 
@@ -126,8 +126,12 @@ var Game = {
       if (distance < this.player.r + dropf.r) {
         if (this.ColorPlus >= 0) {
           this.ColorPlus++;
-        }else{
-          alert("Pinta!")
+        } 
+        if(this.ColorPlus >= 50){
+          setTimeout(function(){
+            alert("Paint");
+            document.location.reload();
+          },500)
         }
      
         
