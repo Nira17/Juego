@@ -1,4 +1,4 @@
-function Drops(game,x,y) {
+function Drops(game,x,y,color) {
     this.game = game
     this.x = x; 
     this.y = y;
