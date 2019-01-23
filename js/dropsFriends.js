@@ -1,9 +1,9 @@
-function DropsFriend(game,x,y,color) {
+function DropsFriends(game,x,y,color) {
     this.game = game
     this.x = x; 
     this.y = y;
-    this.r = 5;
-    this.dy = 2;
+    this.r = 8;
+    this.dy = 2.5;
     this.color = color;
     
   
@@ -11,7 +11,7 @@ function DropsFriend(game,x,y,color) {
     
 }
 
-DropsFriend.prototype.draw = function () {
+DropsFriends.prototype.drawf = function () {
 
     this.ctx = this.game.ctx;
     this.ctx.beginPath();
@@ -24,7 +24,7 @@ DropsFriend.prototype.draw = function () {
     this.ctx.closePath();  
 
 }
-DropsFriend.prototype.move = function () {
+DropsFriends.prototype.movef = function () {
     
      this.y += this.dy ;
 };

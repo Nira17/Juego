@@ -10,6 +10,7 @@ var Game = {
   },
   arrayDrops: [],
   arrayDropsFriends: [],
+    
 
 
 
@@ -41,7 +42,7 @@ var Game = {
 
       }
 
-      if (this.arrayDropsFriends === 80) {
+      if (this.dropFriendsCount === 80) {
         this.dropFriendsCount = 0;
         this.createDropsFriends();
 
@@ -56,10 +57,7 @@ var Game = {
     this.background = new Background(this);
     this.player = new Player(this);
 
-    // this.scoreBoard = ScoreBoard
-    // this.framesCounter = 0;
-
-    // this.score = 0;
+    
   },
   createDrops: function () {
 
@@ -69,8 +67,8 @@ var Game = {
   },
 
   createDropsFriends: function () {
-
-    var dropItem = new DropsFriend(this, Math.round(Math.random() * (900 - 400) + 400), 60,);
+    console.log("hi")
+    var dropItem = new DropsFriends(this, Math.round(Math.random() * (900 - 400) + 400), 62,);
     this.arrayDropsFriends.push(dropItem)
 
   },
@@ -84,9 +82,9 @@ var Game = {
   drawAll: function () {
     this.background.draw();
     this.drawDrops();
-
     this.player.draw();
     this.drawLives();
+    this.drawDropsFriends();
     
 
   },
@@ -99,9 +97,11 @@ var Game = {
     })
   },
     drawDropsFriends: function () {
-      this.arrayDrops.forEach(function (elemt) {
-        elemt.drawf();
-        elemt.movef();
+    
+      this.arrayDropsFriends.forEach(function (elemtf) {
+        console.log(elemtf)
+        elemtf.drawf();
+        elemtf.movef();
       })
  
     },
