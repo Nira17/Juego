@@ -15,8 +15,8 @@ DropsFriends.prototype.drawf = function () {
 
     this.ctx = this.game.ctx;
     this.ctx.beginPath();
-    this.ctx.strokeStyle = "#fff57c";
-    this.ctx.fillStyle = "#fff57c";
+    this.ctx.strokeStyle =this.color;
+    this.ctx.fillStyle = this.color;
     this.ctx.lineWidth = 5;
     this.ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
     this.ctx.fill();

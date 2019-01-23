@@ -7,12 +7,12 @@ function Player(game) {
 }
 
 
-Player.prototype.draw = function () {
-
+Player.prototype.draw = function (color) {
+    
     this.ctx = this.game.ctx;
     this.ctx.beginPath();
-    this.ctx.strokeStyle = "#fff57c";
-    this.ctx.fillStyle = "#fff57c";
+    this.ctx.strokeStyle = color;
+    this.ctx.fillStyle = color;
     this.ctx.lineWidth = 5;
     this.ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
     this.ctx.fill();
@@ -24,12 +24,12 @@ Player.prototype.draw = function () {
 Player.prototype.move = function () {
     document.onkeydown = function (event) {
         if (event.keyCode === this.game.keys.RIGTH ) {
-            console.log('derecha')
-            this.x += 5;
+           
+            this.x += 6;
                
              }else if (event.keyCode == this.game.keys.LEFT) {
-            console.log('IZDA')
-            this.x -= 5;
+           
+            this.x -= 6;
         }
     }.bind(this);
 

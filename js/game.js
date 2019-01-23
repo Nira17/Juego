@@ -4,6 +4,8 @@ var Game = {
   fps: 60,
   scoreBoard: 0,
   points: 50,
+  level:1,
+  colorLevel:"#fff57c",
   ColorPlus:0,
   keys: {
     RIGTH: 39,
@@ -18,6 +20,7 @@ var Game = {
 
 
   start: function (id) {
+    
     var fps2 = 1000 / this.fps
     this.canvas = document.getElementById(id);
     this.ctx = this.canvas.getContext("2d");
@@ -57,20 +60,21 @@ var Game = {
 
   reset: function () {
     this.background = new Background(this);
-    this.player = new Player(this);
+    this.player = new Player(this); //color
 
     
   },
   createDrops: function () {
 
-    var dropItem = new Drops(this, Math.round(Math.random() * (900 - 400) + 400), 60, );
+    var dropItem = new Drops(this, Math.round(Math.random() * (900 - 400) + 400), 60,"#000000" );
     this.arrayDrops.push(dropItem)
 
   },
 
   createDropsFriends: function () {
-
-    var dropItem = new DropsFriends(this, Math.round(Math.random() * (900 - 400) + 400), 62,);
+ 
+ 
+    var dropItem = new DropsFriends(this, Math.round(Math.random() * (900 - 400) + 400), 62,this.colorLevel);
     this.arrayDropsFriends.push(dropItem)
 
   },
@@ -83,11 +87,12 @@ var Game = {
 
   drawAll: function () {
     this.background.draw();
-  
-    this.drawDrops();
-    this.player.draw();
-    this.drawLives();
     this.drawDropsFriends();
+    this.drawDrops();
+    // console.log(this.player)
+    this.player.draw(this.colorLevel);
+    this.drawLives();
+    
     this.drawball();
     
 
@@ -130,11 +135,12 @@ var Game = {
         } 
         if(this.ColorPlus >= 50){
           setTimeout(function(){
-           
-
-           this.canvas.background = "../img/Background2.png"
-            document.location.reload();
-          },500)
+          
+         this.level++;
+            
+            //document.location.reload();
+            this.levelChange();
+          }.bind(this),500)
         }
      
         
@@ -185,7 +191,18 @@ var Game = {
     this.ctx.font = "20px Arial";
     this.ctx.fillStyle = "#90EE90";
     this.ctx.fillText("Color +: " + this.ColorPlus, 700, 40);
-  }
+  },
+
+  levelChange: function(){
+    if(this.level == 2){
+      this.colorLevel = "	#e6a958";
+   
+    }
+    
+    
+    }
 
 
 }
+
+
