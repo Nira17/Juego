@@ -41,6 +41,7 @@ var Game = {
       this.moveAll();
       this.isCollision()
       this.isCollisionFriends();
+      
      
 
       this.dropCount++;
@@ -88,7 +89,7 @@ var Game = {
 
 
   clear: function () {
-    this.ctx.clearRect(100,200, this.canvas.width, this.canvas.height);
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
   },
 
   drawAll: function () {
@@ -253,7 +254,11 @@ var Game = {
     },
 
 
-    
+    clearDrops: function () {
+      this.drop = this.drop.filter(function (drop) {
+        return drop.y >= 0;
+      });
+    },
   
 
 
