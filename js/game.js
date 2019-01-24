@@ -93,9 +93,17 @@ var Game = {
       src='img/Background.png';
     }else if(this.level==2){
       src='img/Background2.png';
+    }else if(this.level==3){
+      src="img/Background3.png";
+    }else if(this.level==4){
+      src="img/backgroundBufanda.png";
+    }else if(this.level==5){
+      src="img/BackgroundFinal.png"
+    }else if(this.level==6){
+      src="img/Background.png"
     }
     this.background.draw(src);
-    //this.background2.draw2();
+   
     this.drawDropsFriends();
     this.drawDrops();
     this.player.draw(this.colorLevel);
@@ -209,7 +217,7 @@ var Game = {
       
       this.colorLevel = "	#e6a958";
       this.points = 50;
-      //this.background2.draw2();
+      
     }
     if(this.level == 3){
       this.colorLevel = "#913b3c";
@@ -217,15 +225,26 @@ var Game = {
       
       }
     if(this.level == 4){
-        this.colorLevel = "#e8e8e8";
+        this.colorLevel = "#7b7575";
         this.points = 50;
         
       }
     if(this.level == 5){
-          alert("Todo Pintado")
-          document.location.reload();
-          
+         this.points = 50;
+         this.colorLevel = "#FFFFFF";
+         
       }   
+
+      if(this.level == 6){
+      this.points = 20;
+        alert("All Paint");
+        document.location.reload();
+
+       
+        
+         
+         
+     }    
        
     },
 
