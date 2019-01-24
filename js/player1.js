@@ -27,7 +27,7 @@ Player.prototype.move = function () {
            
             this.x += 6;
                
-             }else if (event.keyCode == this.game.keys.LEFT) {
+       }else if (event.keyCode == this.game.keys.LEFT) {
            
             this.x -= 6;
         }

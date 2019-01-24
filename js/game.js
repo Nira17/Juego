@@ -13,6 +13,7 @@ var Game = {
   },
   arrayDrops: [],
   arrayDropsFriends: [],
+ 
     
 
 
@@ -59,8 +60,9 @@ var Game = {
 
 
   reset: function () {
+   
     this.background = new Background(this);
-    this.player = new Player(this); //color
+    this.player = new Player(this); 
 
     
   },
@@ -86,18 +88,23 @@ var Game = {
   },
 
   drawAll: function () {
-    this.background.draw();
+    var src='';
+    if(this.level==1){
+      src='img/Background.png';
+    }else if(this.level==2){
+      src='img/Background2.png';
+    }
+    this.background.draw(src);
+    //this.background2.draw2();
     this.drawDropsFriends();
     this.drawDrops();
-    // console.log(this.player)
     this.player.draw(this.colorLevel);
     this.drawLives();
-    
     this.drawball();
-    
 
   },
 
+    
 
   drawDrops: function () {
     this.arrayDrops.forEach(function (elemt) {
@@ -181,7 +188,7 @@ var Game = {
       }
 
     }.bind(this))
-    //console.log(result)
+   
   },
 
 
@@ -197,11 +204,12 @@ var Game = {
   },
 
   levelChange: function(){
+    
     if(this.level == 2){
+      
       this.colorLevel = "	#e6a958";
       this.points = 50;
- 
-      //this.background.draw("../img/Background2.png");
+      //this.background2.draw2();
     }
     if(this.level == 3){
       this.colorLevel = "#913b3c";
@@ -212,12 +220,12 @@ var Game = {
         this.colorLevel = "#e8e8e8";
         this.points = 50;
         
-        }
-        if(this.level == 5){
+      }
+    if(this.level == 5){
           alert("Todo Pintado")
           document.location.reload();
           
-          }   
+      }   
        
     },
 
