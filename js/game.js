@@ -21,11 +21,14 @@ var Game = {
 
 
   start: function (id) {
-    
+  
     var fps2 = 1000 / this.fps
     this.canvas = document.getElementById(id);
     this.ctx = this.canvas.getContext("2d");
+  
+  
     this.fps = 60;
+  
 
     this.reset();
 
@@ -38,6 +41,7 @@ var Game = {
       this.moveAll();
       this.isCollision()
       this.isCollisionFriends();
+     
 
       this.dropCount++;
       this.dropFriendsCount++;
@@ -84,7 +88,7 @@ var Game = {
 
 
   clear: function () {
-    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.ctx.clearRect(100,200, this.canvas.width, this.canvas.height);
   },
 
   drawAll: function () {

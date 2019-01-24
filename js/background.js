@@ -1,11 +1,11 @@
 function Background(game) {
   this.game = game;
  this.img = new Image();
+ this.x = 0;
+ this.y = 0;
+ this.width = 1000;
+ this.height = 1000;
   
-  this.x = 0;
-  this.y = 0;
-  this.width = 1000;
-  this.height = 1000;
 
 
 

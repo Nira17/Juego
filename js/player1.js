@@ -8,7 +8,7 @@ function Player(game) {
 
 
 Player.prototype.draw = function (color) {
-    
+   
     this.ctx = this.game.ctx;
     this.ctx.beginPath();
     this.ctx.strokeStyle = color;
@@ -25,11 +25,11 @@ Player.prototype.move = function () {
     document.onkeydown = function (event) {
         if (event.keyCode === this.game.keys.RIGTH ) {
            
-            this.x += 6;
+            this.x += 8;
                
        }else if (event.keyCode == this.game.keys.LEFT) {
            
-            this.x -= 6;
+            this.x -= 8;
         }
     }.bind(this);
 
