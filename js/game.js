@@ -41,6 +41,7 @@ var Game = {
       this.moveAll();
       this.isCollision()
       this.isCollisionFriends();
+      this.filterDrops();
       
      
 
@@ -245,9 +246,6 @@ var Game = {
         alert("All Paint");
         document.location.reload();
 
-       
-        
-         
          
      }    
        
@@ -260,7 +258,14 @@ var Game = {
       });
     },
   
-
+    filterDrops : function(){
+      this.arrayDrops= this.arrayDrops.filter(function (drop) {
+        return drop.y < this.player.y + this.player.r;
+      }.bind(this));
+      this.arrayDropsFriends= this.arrayDropsFriends.filter(function (drop) {
+        return drop.y < this.player.y + 10;
+      }.bind(this));
+    }
 
 }
 
